@@ -1,2 +1,137 @@
-<meta http-equiv="refresh" content="0; url=https://lebonit.be">
-This is not the website you are looking for.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Desk Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logo">
+                <img src="./logo_lebonit_kleurembleem_witte achtergrond.png" alt="LeBon IT Logo" class="logo">
+            </div>
+            <!-- <h1>Service Desk Portal</h1> -->
+            <p class="subtitle">Portail du Service Desk • Service Desk Portaal • Service Desk Portal</p>
+        </header>
+
+        <main>
+            <div class="services-grid">
+                <!-- Microsoft Password Reset -->
+                <div class="service-card">
+                    <div class="icon">🔐</div>
+                    <h3>Microsoft Password Reset</h3>
+                    <p class="description">
+                        <span class="lang en">Reset your Microsoft account password</span>
+                        <span class="lang fr">Réinitialiser votre mot de passe Microsoft</span>
+                        <span class="lang nl">Reset uw Microsoft account wachtwoord</span>
+                    </p>
+                    <a href="https://passwordreset.microsoftonline.com/passwordreset#!/" target="_blank" class="service-link">
+                        <span class="lang en">Reset Password</span>
+                        <span class="lang fr">Réinitialiser</span>
+                        <span class="lang nl">Wachtwoord Reset</span>
+                    </a>
+                </div>
+
+                <!-- Office 365 Login -->
+                <div class="service-card">
+                    <div class="icon">📧</div>
+                    <h3>Office 365</h3>
+                    <p class="description">
+                        <span class="lang en">Access your Office 365 applications</span>
+                        <span class="lang fr">Accédez à vos applications Office 365</span>
+                        <span class="lang nl">Toegang tot uw Office 365 toepassingen</span>
+                    </p>
+                    <a href="https://office.com" target="_blank" class="service-link">
+                        <span class="lang en">Open Office 365</span>
+                        <span class="lang fr">Ouvrir Office 365</span>
+                        <span class="lang nl">Open Office 365</span>
+                    </a>
+                </div>
+
+                <!-- Windows Update -->
+                <div class="service-card">
+                    <div class="icon">🔄</div>
+                    <h3>Windows Update</h3>
+                    <p class="description">
+                        <span class="lang en">Check for Windows updates</span>
+                        <span class="lang fr">Vérifier les mises à jour Windows</span>
+                        <span class="lang nl">Controleer Windows updates</span>
+                    </p>
+                    <a href="ms-settings:windowsupdate" class="service-link">
+                        <span class="lang en">Check Updates</span>
+                        <span class="lang fr">Vérifier</span>
+                        <span class="lang nl">Controleer Updates</span>
+                    </a>
+                </div>
+
+                <!-- Remote Desktop -->
+                <div class="service-card">
+                    <div class="icon">🖥️</div>
+                    <h3>Remote Desktop</h3>
+                    <p class="description">
+                        <span class="lang en">Connect to remote desktop</span>
+                        <span class="lang fr">Connexion bureau à distance</span>
+                        <span class="lang nl">Verbinding externe bureaublad</span>
+                    </p>
+                    <a href="https://quicksupport.lebonit.be/" class="service-link">
+                        <span class="lang en">Connect</span>
+                        <span class="lang fr">Se connecter</span>
+                        <span class="lang nl">Verbinden</span>
+                    </a>
+                </div>
+
+                <!-- IT Support Portal -->
+                <div class="service-card">
+                    <div class="icon">🎧</div>
+                    <h3>IT Support</h3>
+                    <p class="description">
+                        <span class="lang en">Contact IT support team</span>
+                        <span class="lang fr">Contacter l'équipe de support IT</span>
+                        <span class="lang nl">Contact IT support team</span>
+                    </p>
+                    <div class="support-buttons">
+                        <a href="mailto:servicedesk@lebonit.be" class="service-link email-btn">
+                            <span class="lang en">📧 Email Support</span>
+                            <span class="lang fr">📧 Email Support</span>
+                            <span class="lang nl">📧 Email Support</span>
+                        </a>
+                        <a href="tel:+3251268285" class="service-link call-btn">
+                            <span class="lang en">📞 Call Support</span>
+                            <span class="lang fr">📞 Appeler Support</span>
+                            <span class="lang nl">📞 Bel Support</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- System Information -->
+                <div class="service-card">
+                    <div class="icon">ℹ️</div>
+                    <h3>System Information</h3>
+                    <p class="description">
+                        <span class="lang en">View system information</span>
+                        <span class="lang fr">Afficher les informations système</span>
+                        <span class="lang nl">Bekijk systeeminformatie</span>
+                    </p>
+                    <a href="ms-settings:about" class="service-link">
+                        <span class="lang en">View Info</span>
+                        <span class="lang fr">Voir Info</span>
+                        <span class="lang nl">Bekijk Info</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="language-selector">
+                <button onclick="setLanguage('en')" class="lang-btn active" data-lang="en">English</button>
+                <button onclick="setLanguage('fr')" class="lang-btn" data-lang="fr">Français</button>
+                <button onclick="setLanguage('nl')" class="lang-btn" data-lang="nl">Nederlands</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
