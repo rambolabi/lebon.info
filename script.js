@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializePage() {
     // Check for saved language preference
-    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'nl';
     setLanguage(savedLanguage);
     
     // Add smooth scrolling for better navigation
