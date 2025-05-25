@@ -346,6 +346,7 @@ body:not([data-lang]) .lang.en {
 
     .logo {
         max-height: 150px;
+        padding-top: 30px; /* zorgt ook voor warp in logo cirkel */
     }
 
     header h1 {
