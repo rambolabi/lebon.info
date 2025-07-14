@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the page
     initializePage();
     
-    // Add click tracking for service links
-    addServiceLinkTracking();
-    
     // Add hover effects for better UX
     addEnhancedHoverEffects();
 });
@@ -20,14 +17,14 @@ function initializePage() {
     document.documentElement.style.scrollBehavior = 'smooth';
     
     // Initialize tooltips if needed
-    initializeTooltips();
+    //initializeTooltips();
 }
 
 function setLanguage(lang) {
     // Validate language selection
     const validLanguages = ['en', 'fr', 'nl'];
     if (!validLanguages.includes(lang)) {
-        lang = 'en'; // Default fallback
+        lang = 'nl'; // Default fallback
     }
     
     // Set the language attribute on body
@@ -65,7 +62,7 @@ function announceLanguageChange(lang) {
         'nl': 'Taal gewijzigd naar Nederlands'
     };
     
-    // Create temporary announcement for screen readers
+    // Temp bericht wanneer je taal wijzigt staat nu verstopt
     const announcement = document.createElement('div');
     announcement.setAttribute('aria-live', 'polite');
     announcement.setAttribute('aria-atomic', 'true');
@@ -81,41 +78,7 @@ function announceLanguageChange(lang) {
     // Remove after announcement
     setTimeout(() => {
         document.body.removeChild(announcement);
-    }, 1000);
-}
-
-function addServiceLinkTracking() {
-    const serviceLinks = document.querySelectorAll('.service-link');
-    
-    serviceLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const serviceName = this.closest('.service-card').querySelector('h3').textContent;
-            
-            // Log the click (could be sent to analytics)
-            console.log(`Service accessed: ${serviceName}`);
-            
-            // Add visual feedback
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // Check if link is external and warn if needed
-            if (this.hostname && this.hostname !== window.location.hostname) {
-                // Optional: Add confirmation for external links
-                // You can uncomment this if you want confirmation dialogs
-                // const confirmMessage = {
-                //     'en': 'You are about to visit an external website. Continue?',
-                //     'fr': 'Vous êtes sur le point de visiter un site externe. Continuer?',
-                //     'nl': 'U gaat naar een externe website. Doorgaan?'
-                // };
-                // const currentLang = document.body.getAttribute('data-lang') || 'en';
-                // if (!confirm(confirmMessage[currentLang])) {
-                //     e.preventDefault();
-                // }
-            }
-        });
-    });
+    }, 1500);
 }
 
 function addEnhancedHoverEffects() {
@@ -191,7 +154,8 @@ function addRippleEffect(element, event) {
 }
 
 function initializeTooltips() {
-    // Add tooltips to service cards for additional information
+    // tooltips: indien we extra uitleg willen toevoegen aan de service cards, misschien onhover?
+    // wordt nu niet opgeroepen
     const tooltipTexts = {
         'Microsoft Password Reset': {
             'en': 'Quickly reset your Microsoft account password if you\'ve forgotten it',
@@ -240,27 +204,7 @@ function initializeTooltips() {
     });
 }
 
-// Keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey || e.metaKey) {
-        switch(e.key) {
-            case '1':
-                e.preventDefault();
-                setLanguage('en');
-                break;
-            case '2':
-                e.preventDefault();
-                setLanguage('fr');
-                break;
-            case '3':
-                e.preventDefault();
-                setLanguage('nl');
-                break;
-        }
-    }
-});
-
-// Handle window resize for better responsive behavior
+// Console log wanneer venster wordt geresized
 let resizeTimeout;
 window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
@@ -270,7 +214,7 @@ window.addEventListener('resize', function() {
     }, 250);
 });
 
-// Service worker registration for offline functionality (optional)
+// Service worker registration for offline functionality (optional) Todo, zien als dit nodig is?
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         // Uncomment to enable service worker
@@ -283,3 +227,33 @@ if ('serviceWorker' in navigator) {
         //     });
     });
 }
+
+function showAlert(messageEn, messageFr, messageNl) {
+    const alertContainer = document.getElementById('alertContainer');
+    const alertMessage = document.getElementById('alertMessage');
+    
+    // Update bericht
+    alertMessage.innerHTML = `
+        <span class="lang en">${messageEn}</span>
+        <span class="lang fr">${messageFr}</span>
+        <span class="lang nl">${messageNl}</span>
+    `;
+    
+    // Toon alert
+    alertContainer.style.display = 'block';
+    
+    // // Herlaad taal instellingen
+    // const currentLang = localStorage.getItem('language') || 'en';
+    // setLanguage(currentLang);
+}
+
+function closeAlert() {
+    document.getElementById('alertContainer').style.display = 'none';
+}
+
+// Voorbeeld gebruik - roep aan wanneer nodig:
+showAlert(
+    "Microsoft is experiencing issues today. Email delivery may be delayed.",
+    "Microsoft connaît des problèmes aujourd'hui. La livraison d'e-mails peut être retardée.",
+    "Microsoft ondervindt vandaag problemen. E-mailbezorging kan vertraagd zijn."
+);

@@ -50,6 +50,22 @@
             <h2>Portail d'accès rapide</h2> -->
         </header>
 
+        <div class="alert-container" id="alertContainer" style="display: none;">
+            <div class="alert-banner">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <div class="alert-title">
+                        <span class="lang en">Service Disruption</span>
+                        <span class="lang fr">Interruption de Service</span>
+                        <span class="lang nl">Serviceverstoring</span>
+                    </div>
+                    <div class="alert-message" id="alertMessage">
+                    </div>
+                </div>
+                <button class="alert-close" onclick="closeAlert()">×</button>
+            </div>
+        </div>
+
         <main>
             <div class="services-grid">
 
