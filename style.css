@@ -42,7 +42,7 @@ header {
     background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
     color: var(--white);
     padding: 30px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     box-shadow: var(--shadow);
 
     text-align: left;
