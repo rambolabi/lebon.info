@@ -42,7 +42,7 @@ header {
     background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
     color: var(--white);
     padding: 30px;
-    /* border-radius: 15px; */
+    border-radius: 15px;
     box-shadow: var(--shadow);
 
     text-align: left;
@@ -105,7 +105,7 @@ header {
     width: auto;
     filter: brightness(1.1);
     transition: transform 0.3s ease;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 .logo:hover {
